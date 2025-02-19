@@ -40,32 +40,40 @@
       gap: 20px;
     }
 
-    .button-container {
+        .button-container {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
-      width: 100%;
-      max-width: 600px;
-      align-items: center;
+      justify-content: center; /* Center items horizontally */
+      align-items: center; /* Align vertically */
+      flex-wrap: wrap; /* Wrap items if screen is small */
+      gap: 10px; /* Add equal spacing */
+      max-width: 100%; /* Ensure full width */
     }
-
+    
     .box {
-      width: 200px;
-      height: 150px;
+      flex: 1; /* Distribute space equally */
+      min-width: 180px; /* Ensure boxes have a minimum width */
+      max-width: 200px; /* Prevent oversized boxes */
+      height: 100px; /* Set uniform height */
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      border-radius: 12px;
       text-align: center;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s, background-color 0.3s;
+      background-color: gray;
+      color: white;
       cursor: pointer;
+      transition: 0.3s;
     }
 
     .box:hover {
       transform: scale(1.1);
       background-color: #ffffff;
+    }
+    
+        .troubleshooting {
+      width: 80%; /* Palaparin para sumakop ng mas malaking area */
+      text-align: center;
+      display: block;
+      margin: 20px auto; /* I-center */
     }
 
     .easy { background-color: #28a745; }
@@ -158,23 +166,31 @@
     <p>Programming and Troubleshooting Tutorials</p>
   </header>
 
-  <!-- Content Container -->
-  <div class="container" id="main-content" style="display: none;">
-    <div class="button-container">
-      <a href="easy.html" style="text-decoration: none; color: inherit;" class="box easy">
-        <span>Easy Tutorials</span>
-      </a>
-      <a href="basic.html" style="text-decoration: none; color: inherit;" class="box basic">
-        <span>Basic Tutorials</span>
-      </a>
-      <a href="advanced.html" style="text-decoration: none; color: inherit;" class="box advanced">
-        <span>Advanced Tutorials</span>
-      </a>
-    </div>
-    <a href="troubleshooting.html" style="text-decoration: none; color: inherit;" class="box troubleshooting">
-      <span>Troubleshooting</span>
+<!-- Content Container -->
+<div class="container" id="main-content" style="display: none;">
+  <div class="button-container">
+    <a href="easy.html" style="text-decoration: none; color: inherit;" class="box easy">
+      <span>Easy Tutorials</span>
     </a>
+    <a href="basic.html" style="text-decoration: none; color: inherit;" class="box basic">
+      <span>Basic Tutorials</span>
+    </a>
+    <a href="advanced.html" style="text-decoration: none; color: inherit;" class="box advanced">
+      <span>Advanced Tutorials</span>
+    </a>
+    <!-- Coming Soon Boxes (Now in the same row) -->
+    <div class="box" style="background-color: #6c757d; color: white; cursor: default;">
+      <span>Coming Soon</span>
+    </div>
+    <div class="box" style="background-color: #6c757d; color: white; cursor: default;">
+      <span>Coming Soon</span>
+    </div>
   </div>
+
+  <a href="troubleshooting.html" style="text-decoration: none; color: inherit;" class="box troubleshooting">
+    <span>Troubleshooting</span>
+  </a>
+</div>
 
   <!-- Updated Menu -->
   <div class="menu-container" onclick="toggleMenu()">
@@ -191,7 +207,7 @@
     <p>&copy; 2025 MNHS Camaya Campus | All Rights Reserved | <a href="privacy_policy.html" class="privacy-policy-link">Privacy Policy</a></p>
   </footer>
 
-  <script>
+ <script>
     function toggleMenu() {
       var dropdown = document.getElementById("dropdownMenu");
       dropdown.classList.toggle("show");
@@ -205,6 +221,9 @@
     };
 
     window.onload = function() {
+      var agreeCheckbox = document.getElementById('agreeCheckbox');
+      var agreeButton = document.getElementById('agreeButton');
+
       if (localStorage.getItem('privacyPolicyAgreed') === 'true') {
         document.getElementById('privacy-policy').style.display = 'none';
         document.getElementById('header-content').style.display = 'block';
@@ -214,7 +233,12 @@
         document.getElementById('privacy-policy').style.display = 'flex';
       }
 
-      document.getElementById('agreeButton').addEventListener('click', function() {
+      // Enable "Agree" button when checkbox is checked
+      agreeCheckbox.addEventListener('change', function() {
+        agreeButton.disabled = !agreeCheckbox.checked;
+      });
+
+      agreeButton.addEventListener('click', function() {
         localStorage.setItem('privacyPolicyAgreed', 'true');
         document.getElementById('privacy-policy').style.display = 'none';
         document.getElementById('header-content').style.display = 'block';
@@ -222,6 +246,6 @@
         document.getElementById('footer-content').style.display = 'block';
       });
     };
-  </script>
+</script>
 </body>
-</html>
+  </html>

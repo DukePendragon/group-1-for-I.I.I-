@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MNHS Programming and Troubleshooting Tutorials</title>
+  <link rel="manifest" href="/manifest.json">
   <style>
     /* General Styles */
     body, html {
@@ -169,13 +170,13 @@
 <!-- Content Container -->
 <div class="container" id="main-content" style="display: none;">
   <div class="button-container">
-    <a href="easy.html" style="text-decoration: none; color: inherit;" class="box easy">
+    <a href="easy.html" style="text-decoration: none; color: inherit;" class="box easy" target="_blank">
       <span>Easy Tutorials</span>
     </a>
-    <a href="basic.html" style="text-decoration: none; color: inherit;" class="box basic">
+    <a href="basic.html" style="text-decoration: none; color: inherit;" class="box basic" target="_blank">
       <span>Basic Tutorials</span>
     </a>
-    <a href="advanced.html" style="text-decoration: none; color: inherit;" class="box advanced">
+    <a href="advanced.html" style="text-decoration: none; color: inherit;" class="box advanced" target="_blank">
       <span>Advanced Tutorials</span>
     </a>
     <!-- Coming Soon Boxes (Now in the same row) -->
@@ -187,7 +188,7 @@
     </div>
   </div>
 
-  <a href="troubleshooting.html" style="text-decoration: none; color: inherit;" class="box troubleshooting">
+  <a href="troubleshooting.html" style="text-decoration: none; color: inherit;" class="box troubleshooting" target="_blank">
     <span>Troubleshooting</span>
   </a>
 </div>
@@ -195,11 +196,12 @@
   <!-- Updated Menu -->
   <div class="menu-container" onclick="toggleMenu()">
     <span class="menu-icon">☰</span>
-    <span class="menu-text">MENU</span>
+    <span class="menu-text"></span>
     <div class="dropdown-content" id="dropdownMenu">
       <a href="quiz_game.html">Quiz Game</a>
       <a href="practice_coding.html">Practice Coding</a> 
       <a href="about-us.html">About Us</a>
+      <a href="members.html">Members</a>
     </div>
   </div>
 
@@ -247,6 +249,11 @@
         document.getElementById('footer-content').style.display = 'block';
       });
     };
+        if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('Service Worker Registered'))
+        .catch((error) => console.log('Service Worker Registration Failed:', error));
+}
 </script>
 </body>
-    </html>
+  </html>

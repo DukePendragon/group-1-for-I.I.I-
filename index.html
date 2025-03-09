@@ -41,7 +41,7 @@
       gap: 20px;
     }
 
-        .button-container {
+    .button-container {
       display: flex;
       justify-content: center; /* Center items horizontally */
       align-items: center; /* Align vertically */
@@ -70,11 +70,11 @@
       background-color: #ffffff;
     }
     
-        .troubleshooting {
-      width: 80%; /* Palaparin para sumakop ng mas malaking area */
+    .troubleshooting {
+      width: 80%;
       text-align: center;
       display: block;
-      margin: 20px auto; /* I-center */
+      margin: 20px auto;
     }
 
     .easy { background-color: #28a745; }
@@ -92,10 +92,10 @@
     }
 
     /* Dropdown Menu */
-        .menu-container {
+    .menu-container {
       display: flex;
       align-items: center;
-      position: fixed; /* Para naka-stay sa taas */
+      position: fixed;
       top: 10px;
       left: 10px;
       z-index: 999;
@@ -167,31 +167,24 @@
     <p>Programming and Troubleshooting Tutorials</p>
   </header>
 
-<!-- Content Container -->
-<div class="container" id="main-content" style="display: none;">
-  <div class="button-container">
-    <a href="easy.html" style="text-decoration: none; color: inherit;" class="box easy" target="_blank">
-      <span>Easy Tutorials</span>
-    </a>
-    <a href="basic.html" style="text-decoration: none; color: inherit;" class="box basic" target="_blank">
-      <span>Basic Tutorials</span>
-    </a>
-    <a href="advanced.html" style="text-decoration: none; color: inherit;" class="box advanced" target="_blank">
-      <span>Advanced Tutorials</span>
-    </a>
-    <!-- Coming Soon Boxes (Now in the same row) -->
-    <div class="box" style="background-color: #6c757d; color: white; cursor: default;">
-      <span>Coming Soon</span>
+  <!-- Content Container -->
+  <div class="container" id="main-content" style="display: none;">
+    <div class="button-container">
+      <a href="easy.html" style="text-decoration: none; color: inherit;" class="box easy" target="_blank">
+        <span>Easy Tutorials</span>
+      </a>
+      <a href="basic.html" style="text-decoration: none; color: inherit;" class="box basic" target="_blank">
+        <span>Basic Tutorials</span>
+      </a>
+      <a href="advanced.html" style="text-decoration: none; color: inherit;" class="box advanced" target="_blank">
+        <span>Advanced Tutorials</span>
+      </a>
     </div>
-    <div class="box" style="background-color: #6c757d; color: white; cursor: default;">
-      <span>Coming Soon</span>
-    </div>
-  </div>
 
-  <a href="troubleshooting.html" style="text-decoration: none; color: inherit;" class="box troubleshooting" target="_blank">
-    <span>Troubleshooting</span>
-  </a>
-</div>
+    <a href="troubleshooting.html" style="text-decoration: none; color: inherit;" class="box troubleshooting" target="_blank">
+      <span>Troubleshooting</span>
+    </a>
+  </div>
 
   <!-- Updated Menu -->
   <div class="menu-container" onclick="toggleMenu()">
@@ -207,10 +200,10 @@
 
   <!-- Footer -->
   <footer id="footer-content" style="display: none;">
-    <p>&copy; 2025 MNHS Camaya Campus | All Rights Reserved | <a href="privacy_policy.html" class="privacy-policy-link">Privacy Policy</a></p>
+    <p>&copy; 2025 MNHS Camaya Campus | All Rights Reserved. |  <a href="privacy_policy.html" class="privacy-policy-link">Privacy Policy</a></p>
   </footer>
 
- <script>
+  <script>
     function toggleMenu() {
       var dropdown = document.getElementById("dropdownMenu");
       dropdown.classList.toggle("show");
@@ -236,7 +229,6 @@
         document.getElementById('privacy-policy').style.display = 'flex';
       }
 
-      // Enable "Agree" button when checkbox is checked
       agreeCheckbox.addEventListener('change', function() {
         agreeButton.disabled = !agreeCheckbox.checked;
       });
@@ -249,11 +241,6 @@
         document.getElementById('footer-content').style.display = 'block';
       });
     };
-        if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-        .then(() => console.log('Service Worker Registered'))
-        .catch((error) => console.log('Service Worker Registration Failed:', error));
-}
-</script>
+  </script>
 </body>
-  </html>
+</html>
